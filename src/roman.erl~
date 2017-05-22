@@ -1,0 +1,17 @@
+-module(roman).
+-export([convert/1]).
+-compile(export_all).
+
+convert(Number)->
+    case Number of
+	1 ->
+	    "V";
+	2 ->
+	    "II";
+	3 ->
+	    "III";
+	4 ->
+	    "IV";
+	5 ->
+	    "V"
+    end.

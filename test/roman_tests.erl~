@@ -1,0 +1,22 @@
+-module(roman_tests).
+-include_lib("eunit/include/eunit.hrl").
+
+convert_number_one_to_roman_test()->
+    Res = roman_numeral:convert(1),
+    ?assertEqual("I",Res).
+
+convert_number_two_to_roman_test()->
+    Res = roman_numeral:convert(2),
+    ?assertEqual("II",Res).
+
+convert_number_three_to_roman_test()->
+    Res = roman_numeral:convert(3),
+    ?assertEqual("III",Res).
+
+convert_number_four_to_roman_test()->
+    Res = roman_numeral:convert(4),
+    ?assertEqual("IV",Res).
+
+convert_number_five_to_roman_test()->
+    Res = roman_numeral:convert(5),
+    ?assertEqual("V",Res).
