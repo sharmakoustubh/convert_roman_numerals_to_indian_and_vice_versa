@@ -168,3 +168,75 @@ convert_number_fortyeight_to_roman_test()->
 convert_number_fifty_to_roman_test()->
     Res = roman:convert(50),
     ?assertEqual("L",Res).
+
+convert_number_fiftythree_to_roman_test()->
+    Res = roman:convert(53),
+    ?assertEqual("LIII",Res).
+
+convert_number_fiftyfive_to_roman_test()->
+    Res = roman:convert(55),
+    ?assertEqual("LV",Res).
+
+convert_number_fiftyeight_to_roman_test()->
+    Res = roman:convert(58),
+    ?assertEqual("LVIII",Res).
+
+convert_number_ninety_to_roman_test()->
+    Res = roman:convert(90),
+    ?assertEqual("XC",Res).
+
+convert_number_ninetythree_to_roman_test()->
+    Res = roman:convert(93),
+    ?assertEqual("XCIII",Res).
+
+convert_number_ninetyfive_to_roman_test()->
+    Res = roman:convert(95),
+    ?assertEqual("XCV",Res).
+
+convert_number_ninetyeight_to_roman_test()->
+    Res = roman:convert(98),
+    ?assertEqual("XCVIII",Res).
+
+convert_number_hundred_to_roman_test()->
+    Res = roman:convert(100),
+    ?assertEqual("C",Res).
+
+convert_number_hundredthree_to_roman_test()->
+    Res = roman:convert(103),
+    ?assertEqual("CIII",Res).
+
+convert_number_hundredfive_to_roman_test()->
+    Res = roman:convert(105),
+    ?assertEqual("CV",Res).
+
+convert_number_hundredeight_to_roman_test()->
+    Res = roman:convert(108),
+    ?assertEqual("CVIII",Res).
+
+convert_number_fourhundred_to_roman_test()->
+    Res = roman:convert(400),
+    ?assertEqual("CD",Res).
+
+convert_number_fourhundredfour_to_roman_test()->
+    Res = roman:convert(404),
+    ?assertEqual("CDIV",Res).
+
+convert_number_fourhundredten_to_roman_test()->
+    Res = roman:convert(410),
+    ?assertEqual("CDX",Res).
+
+convert_number_fivehundredseven_to_roman_test()->
+    Res = roman:convert(507),
+    ?assertEqual("DVII",Res).
+
+convert_number_fivehundredfifty_to_roman_test()->
+    Res = roman:convert(550),
+    ?assertEqual("DL",Res).
+
+convert_number_ninehundred_to_roman_test()->
+    Res = roman:convert(900),
+    ?assertEqual("CM",Res).
+
+convert_number_fourThousandNineHundredNinetyNine_to_roman_test()->
+    Res = roman:convert(4999),
+    ?assertEqual("MMMMCMXCIX",Res).

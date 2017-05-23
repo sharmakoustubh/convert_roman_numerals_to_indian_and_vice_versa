@@ -9,6 +9,36 @@ convert(0,Res)->
     Res;
 convert(Number, Res)->
     case Number of
+	N  when N >= 1000  ->
+	    New_N = N - 1000,
+	    New_Res = Res ++ "M",
+	    convert(New_N, New_Res);
+
+	N  when N >= 900  ->
+	    New_N = N - 900,
+	    New_Res = Res ++ "CM",
+	    convert(New_N, New_Res);
+
+	N  when N >= 500  ->
+	    New_N = N - 500,
+	    New_Res = Res ++ "D",
+	    convert(New_N, New_Res);
+
+	N  when N >= 400  ->
+	    New_N = N - 400,
+	    New_Res = Res ++ "CD",
+	    convert(New_N, New_Res);
+
+	N  when N >= 100  ->
+	    New_N = N - 100,
+	    New_Res = Res ++ "C",
+	    convert(New_N, New_Res);
+
+	N  when N >= 90  ->
+	    New_N = N - 90,
+	    New_Res = Res ++ "XC",
+	    convert(New_N, New_Res);
+
 	N  when N >= 50  ->
 	    New_N = N - 50,
 	    New_Res = Res ++ "L",
