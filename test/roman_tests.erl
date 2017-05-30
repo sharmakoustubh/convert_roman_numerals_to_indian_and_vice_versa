@@ -1,242 +1,741 @@
 -module(roman_tests).
 -include_lib("eunit/include/eunit.hrl").
 
-convert_number_one_to_roman_test()->
-    Res = roman:convert(1),
-    ?assertEqual("I",Res).
 
-convert_number_two_to_roman_test()->
-    Res = roman:convert(2),
-    ?assertEqual("II",Res).
+roman_test_()->
+    [?_assert(roman:to_roman(1) == "I"),
+     ?_assert(roman:to_roman(2) == "II"),
+     ?_assert(roman:to_roman(3) == "III"),
+     ?_assert(roman:to_roman(4) == "IV"),
+     ?_assert(roman:to_roman(5) == "V"),
+     ?_assert(roman:to_roman(6) == "VI"),
+     ?_assert(roman:to_roman(7) == "VII"),
+     ?_assert(roman:to_roman(8) == "VIII"),
+     ?_assert(roman:to_roman(9) == "IX"),
+     ?_assert(roman:to_roman(10) == "X"),
+     ?_assert(roman:to_roman(11) == "XI"),
+     ?_assert(roman:to_roman(12) == "XII"),
+     ?_assert(roman:to_roman(13) == "XIII"),
+     ?_assert(roman:to_roman(14) == "XIV"),
+     ?_assert(roman:to_roman(15) == "XV"),
+     ?_assert(roman:to_roman(16) == "XVI"),
+     ?_assert(roman:to_roman(17) == "XVII"),
+     ?_assert(roman:to_roman(18) == "XVIII"),
+     ?_assert(roman:to_roman(19) == "XIX"),
+     ?_assert(roman:to_roman(20) == "XX"),
+     ?_assert(roman:to_roman(21) == "XXI"),
+     ?_assert(roman:to_roman(22) == "XXII"),
+     ?_assert(roman:to_roman(23) == "XXIII"),
+     ?_assert(roman:to_roman(24) == "XXIV"),
+     ?_assert(roman:to_roman(25) == "XXV"),
+     ?_assert(roman:to_roman(26) == "XXVI"),
+     ?_assert(roman:to_roman(27) == "XXVII"),
+     ?_assert(roman:to_roman(28) == "XXVIII"),
+     ?_assert(roman:to_roman(29) == "XXIX"),
+     ?_assert(roman:to_roman(30) == "XXX"),
+     ?_assert(roman:to_roman(31) == "XXXI"),
+     ?_assert(roman:to_roman(32) == "XXXII"),
+     ?_assert(roman:to_roman(33) == "XXXIII"),
+     ?_assert(roman:to_roman(34) == "XXXIV"),
+     ?_assert(roman:to_roman(35) == "XXXV"),
+     ?_assert(roman:to_roman(36) == "XXXVI"),
+     ?_assert(roman:to_roman(37) == "XXXVII"),
+     ?_assert(roman:to_roman(38) == "XXXVIII"),
+     ?_assert(roman:to_roman(39) == "XXXIX"),
+     ?_assert(roman:to_roman(40) == "XL"),
+     ?_assert(roman:to_roman(41) == "XLI"),
+     ?_assert(roman:to_roman(42) == "XLII"),
+     ?_assert(roman:to_roman(43) == "XLIII"),
+     ?_assert(roman:to_roman(44) == "XLIV"),
+     ?_assert(roman:to_roman(45) == "XLV"),
+     ?_assert(roman:to_roman(46) == "XLVI"),
+     ?_assert(roman:to_roman(47) == "XLVII"),
+     ?_assert(roman:to_roman(48) == "XLVIII"),
+     ?_assert(roman:to_roman(49) == "XLIX"),
+     ?_assert(roman:to_roman(50) == "L"),
+     ?_assert(roman:to_roman(51) == "LI"),
+     ?_assert(roman:to_roman(52) == "LII"),
+     ?_assert(roman:to_roman(53) == "LIII"),
+     ?_assert(roman:to_roman(54) == "LIV"),
+     ?_assert(roman:to_roman(55) == "LV"),
+     ?_assert(roman:to_roman(56) == "LVI"),
+     ?_assert(roman:to_roman(57) == "LVII"),
+     ?_assert(roman:to_roman(58) == "LVIII"),
+     ?_assert(roman:to_roman(59) == "LIX"),
+     ?_assert(roman:to_roman(60) == "LX"),
+     ?_assert(roman:to_roman(61) == "LXI"),
+     ?_assert(roman:to_roman(62) == "LXII"),
+     ?_assert(roman:to_roman(63) == "LXIII"),
+     ?_assert(roman:to_roman(64) == "LXIV"),
+     ?_assert(roman:to_roman(65) == "LXV"),
+     ?_assert(roman:to_roman(66) == "LXVI"),
+     ?_assert(roman:to_roman(67) == "LXVII"),
+     ?_assert(roman:to_roman(68) == "LXVIII"),
+     ?_assert(roman:to_roman(69) == "LXIX"),
+     ?_assert(roman:to_roman(70) == "LXX"),
+     ?_assert(roman:to_roman(71) == "LXXI"),
+     ?_assert(roman:to_roman(72) == "LXXII"),
+     ?_assert(roman:to_roman(73) == "LXXIII"),
+     ?_assert(roman:to_roman(74) == "LXXIV"),
+     ?_assert(roman:to_roman(75) == "LXXV"),
+     ?_assert(roman:to_roman(76) == "LXXVI"),
+     ?_assert(roman:to_roman(77) == "LXXVII"),
+     ?_assert(roman:to_roman(78) == "LXXVIII"),
+     ?_assert(roman:to_roman(79) == "LXXIX"),
+     ?_assert(roman:to_roman(80) == "LXXX"),
+     ?_assert(roman:to_roman(81) == "LXXXI"),
+     ?_assert(roman:to_roman(82) == "LXXXII"),
+     ?_assert(roman:to_roman(83) == "LXXXIII"),
+     ?_assert(roman:to_roman(84) == "LXXXIV"),
+     ?_assert(roman:to_roman(85) == "LXXXV"),
+     ?_assert(roman:to_roman(86) == "LXXXVI"),
+     ?_assert(roman:to_roman(87) == "LXXXVII"),
+     ?_assert(roman:to_roman(88) == "LXXXVIII"),
+     ?_assert(roman:to_roman(89) == "LXXXIX"),
+     ?_assert(roman:to_roman(90) == "XC"),
+     ?_assert(roman:to_roman(91) == "XCI"),
+     ?_assert(roman:to_roman(92) == "XCII"),
+     ?_assert(roman:to_roman(93) == "XCIII"),
+     ?_assert(roman:to_roman(94) == "XCIV"),
+     ?_assert(roman:to_roman(95) == "XCV"),
+     ?_assert(roman:to_roman(96) == "XCVI"),
+     ?_assert(roman:to_roman(97) == "XCVII"),
+     ?_assert(roman:to_roman(98) == "XCVIII"),
+     ?_assert(roman:to_roman(99) == "XCIX"),
+     ?_assert(roman:to_roman(100) == "C"),
+     ?_assert(roman:to_roman(101) == "CI"),
+     ?_assert(roman:to_roman(102) == "CII"),
+     ?_assert(roman:to_roman(103) == "CIII"),
+     ?_assert(roman:to_roman(104) == "CIV"),
+     ?_assert(roman:to_roman(105) == "CV"),
+     ?_assert(roman:to_roman(106) == "CVI"),
+     ?_assert(roman:to_roman(107) == "CVII"),
+     ?_assert(roman:to_roman(108) == "CVIII"),
+     ?_assert(roman:to_roman(109) == "CIX"),
+     ?_assert(roman:to_roman(110) == "CX"),
+     ?_assert(roman:to_roman(111) == "CXI"),
+     ?_assert(roman:to_roman(112) == "CXII"),
+     ?_assert(roman:to_roman(113) == "CXIII"),
+     ?_assert(roman:to_roman(114) == "CXIV"),
+     ?_assert(roman:to_roman(115) == "CXV"),
+     ?_assert(roman:to_roman(116) == "CXVI"),
+     ?_assert(roman:to_roman(117) == "CXVII"),
+     ?_assert(roman:to_roman(118) == "CXVIII"),
+     ?_assert(roman:to_roman(119) == "CXIX"),
+     ?_assert(roman:to_roman(120) == "CXX"),
+     ?_assert(roman:to_roman(121) == "CXXI"),
+     ?_assert(roman:to_roman(122) == "CXXII"),
+     ?_assert(roman:to_roman(123) == "CXXIII"),
+     ?_assert(roman:to_roman(124) == "CXXIV"),
+     ?_assert(roman:to_roman(125) == "CXXV"),
+     ?_assert(roman:to_roman(126) == "CXXVI"),
+     ?_assert(roman:to_roman(127) == "CXXVII"),
+     ?_assert(roman:to_roman(128) == "CXXVIII"),
+     ?_assert(roman:to_roman(129) == "CXXIX"),
+     ?_assert(roman:to_roman(130) == "CXXX"),
+     ?_assert(roman:to_roman(131) == "CXXXI"),
+     ?_assert(roman:to_roman(132) == "CXXXII"),
+     ?_assert(roman:to_roman(133) == "CXXXIII"),
+     ?_assert(roman:to_roman(134) == "CXXXIV"),
+     ?_assert(roman:to_roman(135) == "CXXXV"),
+     ?_assert(roman:to_roman(136) == "CXXXVI"),
+     ?_assert(roman:to_roman(137) == "CXXXVII"),
+     ?_assert(roman:to_roman(138) == "CXXXVIII"),
+     ?_assert(roman:to_roman(139) == "CXXXIX"),
+     ?_assert(roman:to_roman(140) == "CXL"),
+     ?_assert(roman:to_roman(141) == "CXLI"),
+     ?_assert(roman:to_roman(142) == "CXLII"),
+     ?_assert(roman:to_roman(143) == "CXLIII"),
+     ?_assert(roman:to_roman(144) == "CXLIV"),
+     ?_assert(roman:to_roman(145) == "CXLV"),
+     ?_assert(roman:to_roman(146) == "CXLVI"),
+     ?_assert(roman:to_roman(147) == "CXLVII"),
+     ?_assert(roman:to_roman(148) == "CXLVIII"),
+     ?_assert(roman:to_roman(149) == "CXLIX"),
+     ?_assert(roman:to_roman(150) == "CL"),
+     ?_assert(roman:to_roman(151) == "CLI"),
+     ?_assert(roman:to_roman(152) == "CLII"),
+     ?_assert(roman:to_roman(153) == "CLIII"),
+     ?_assert(roman:to_roman(154) == "CLIV"),
+     ?_assert(roman:to_roman(155) == "CLV"),
+     ?_assert(roman:to_roman(156) == "CLVI"),
+     ?_assert(roman:to_roman(157) == "CLVII"),
+     ?_assert(roman:to_roman(158) == "CLVIII"),
+     ?_assert(roman:to_roman(159) == "CLIX"),
+     ?_assert(roman:to_roman(160) == "CLX"),
+     ?_assert(roman:to_roman(161) == "CLXI"),
+     ?_assert(roman:to_roman(162) == "CLXII"),
+     ?_assert(roman:to_roman(163) == "CLXIII"),
+     ?_assert(roman:to_roman(164) == "CLXIV"),
+     ?_assert(roman:to_roman(165) == "CLXV"),
+     ?_assert(roman:to_roman(166) == "CLXVI"),
+     ?_assert(roman:to_roman(167) == "CLXVII"),
+     ?_assert(roman:to_roman(168) == "CLXVIII"),
+     ?_assert(roman:to_roman(169) == "CLXIX"),
+     ?_assert(roman:to_roman(170) == "CLXX"),
+     ?_assert(roman:to_roman(171) == "CLXXI"),
+     ?_assert(roman:to_roman(172) == "CLXXII"),
+     ?_assert(roman:to_roman(173) == "CLXXIII"),
+     ?_assert(roman:to_roman(174) == "CLXXIV"),
+     ?_assert(roman:to_roman(175) == "CLXXV"),
+     ?_assert(roman:to_roman(176) == "CLXXVI"),
+     ?_assert(roman:to_roman(177) == "CLXXVII"),
+     ?_assert(roman:to_roman(178) == "CLXXVIII"),
+     ?_assert(roman:to_roman(179) == "CLXXIX"),
+     ?_assert(roman:to_roman(180) == "CLXXX"),
+     ?_assert(roman:to_roman(181) == "CLXXXI"),
+     ?_assert(roman:to_roman(182) == "CLXXXII"),
+     ?_assert(roman:to_roman(183) == "CLXXXIII"),
+     ?_assert(roman:to_roman(184) == "CLXXXIV"),
+     ?_assert(roman:to_roman(185) == "CLXXXV"),
+     ?_assert(roman:to_roman(186) == "CLXXXVI"),
+     ?_assert(roman:to_roman(187) == "CLXXXVII"),
+     ?_assert(roman:to_roman(188) == "CLXXXVIII"),
+     ?_assert(roman:to_roman(189) == "CLXXXIX"),
+     ?_assert(roman:to_roman(190) == "CXC"),
+     ?_assert(roman:to_roman(191) == "CXCI"),
+     ?_assert(roman:to_roman(192) == "CXCII"),
+     ?_assert(roman:to_roman(193) == "CXCIII"),
+     ?_assert(roman:to_roman(194) == "CXCIV"),
+     ?_assert(roman:to_roman(195) == "CXCV"),
+     ?_assert(roman:to_roman(196) == "CXCVI"),
+     ?_assert(roman:to_roman(197) == "CXCVII"),
+     ?_assert(roman:to_roman(198) == "CXCVIII"),
+     ?_assert(roman:to_roman(199) == "CXCIX"),
+     ?_assert(roman:to_roman(200) == "CC"),
+     ?_assert(roman:to_roman(1900) == "MCM"),
+     ?_assert(roman:to_roman(1901) == "MCMI"),
+     ?_assert(roman:to_roman(1902) == "MCMII"),
+     ?_assert(roman:to_roman(1903) == "MCMIII"),
+     ?_assert(roman:to_roman(1904) == "MCMIV"),
+     ?_assert(roman:to_roman(1905) == "MCMV"),
+     ?_assert(roman:to_roman(1906) == "MCMVI"),
+     ?_assert(roman:to_roman(1907) == "MCMVII"),
+     ?_assert(roman:to_roman(1908) == "MCMVIII"),
+     ?_assert(roman:to_roman(1909) == "MCMIX"),
+     ?_assert(roman:to_roman(1910) == "MCMX"),
+     ?_assert(roman:to_roman(1911) == "MCMXI"),
+     ?_assert(roman:to_roman(1912) == "MCMXII"),
+     ?_assert(roman:to_roman(1913) == "MCMXIII"),
+     ?_assert(roman:to_roman(1914) == "MCMXIV"),
+     ?_assert(roman:to_roman(1915) == "MCMXV"),
+     ?_assert(roman:to_roman(1916) == "MCMXVI"),
+     ?_assert(roman:to_roman(1917) == "MCMXVII"),
+     ?_assert(roman:to_roman(1918) == "MCMXVIII"),
+     ?_assert(roman:to_roman(1919) == "MCMXIX"),
+     ?_assert(roman:to_roman(1920) == "MCMXX"),
+     ?_assert(roman:to_roman(1921) == "MCMXXI"),
+     ?_assert(roman:to_roman(1922) == "MCMXXII"),
+     ?_assert(roman:to_roman(1923) == "MCMXXIII"),
+     ?_assert(roman:to_roman(1924) == "MCMXXIV"),
+     ?_assert(roman:to_roman(1925) == "MCMXXV"),
+     ?_assert(roman:to_roman(1926) == "MCMXXVI"),
+     ?_assert(roman:to_roman(1927) == "MCMXXVII"),
+     ?_assert(roman:to_roman(1928) == "MCMXXVIII"),
+     ?_assert(roman:to_roman(1929) == "MCMXXIX"),
+     ?_assert(roman:to_roman(1930) == "MCMXXX"),
+     ?_assert(roman:to_roman(1931) == "MCMXXXI"),
+     ?_assert(roman:to_roman(1932) == "MCMXXXII"),
+     ?_assert(roman:to_roman(1933) == "MCMXXXIII"),
+     ?_assert(roman:to_roman(1934) == "MCMXXXIV"),
+     ?_assert(roman:to_roman(1935) == "MCMXXXV"),
+     ?_assert(roman:to_roman(1936) == "MCMXXXVI"),
+     ?_assert(roman:to_roman(1937) == "MCMXXXVII"),
+     ?_assert(roman:to_roman(1938) == "MCMXXXVIII"),
+     ?_assert(roman:to_roman(1939) == "MCMXXXIX"),
+     ?_assert(roman:to_roman(1940) == "MCMXL"),
+     ?_assert(roman:to_roman(1941) == "MCMXLI"),
+     ?_assert(roman:to_roman(1942) == "MCMXLII"),
+     ?_assert(roman:to_roman(1943) == "MCMXLIII"),
+     ?_assert(roman:to_roman(1944) == "MCMXLIV"),
+     ?_assert(roman:to_roman(1945) == "MCMXLV"),
+     ?_assert(roman:to_roman(1946) == "MCMXLVI"),
+     ?_assert(roman:to_roman(1947) == "MCMXLVII"),
+     ?_assert(roman:to_roman(1948) == "MCMXLVIII"),
+     ?_assert(roman:to_roman(1949) == "MCMXLIX"),
+     ?_assert(roman:to_roman(1950) == "MCML"),
+     ?_assert(roman:to_roman(1951) == "MCMLI"),
+     ?_assert(roman:to_roman(1952) == "MCMLII"),
+     ?_assert(roman:to_roman(1953) == "MCMLIII"),
+     ?_assert(roman:to_roman(1954) == "MCMLIV"),
+     ?_assert(roman:to_roman(1955) == "MCMLV"),
+     ?_assert(roman:to_roman(1956) == "MCMLVI"),
+     ?_assert(roman:to_roman(1957) == "MCMLVII"),
+     ?_assert(roman:to_roman(1958) == "MCMLVIII"),
+     ?_assert(roman:to_roman(1959) == "MCMLIX"),
+     ?_assert(roman:to_roman(1960) == "MCMLX"),
+     ?_assert(roman:to_roman(1961) == "MCMLXI"),
+     ?_assert(roman:to_roman(1962) == "MCMLXII"),
+     ?_assert(roman:to_roman(1963) == "MCMLXIII"),
+     ?_assert(roman:to_roman(1964) == "MCMLXIV"),
+     ?_assert(roman:to_roman(1965) == "MCMLXV"),
+     ?_assert(roman:to_roman(1966) == "MCMLXVI"),
+     ?_assert(roman:to_roman(1967) == "MCMLXVII"),
+     ?_assert(roman:to_roman(1968) == "MCMLXVIII"),
+     ?_assert(roman:to_roman(1969) == "MCMLXIX"),
+     ?_assert(roman:to_roman(1970) == "MCMLXX"),
+     ?_assert(roman:to_roman(1971) == "MCMLXXI"),
+     ?_assert(roman:to_roman(1972) == "MCMLXXII"),
+     ?_assert(roman:to_roman(1973) == "MCMLXXIII"),
+     ?_assert(roman:to_roman(1974) == "MCMLXXIV"),
+     ?_assert(roman:to_roman(1975) == "MCMLXXV"),
+     ?_assert(roman:to_roman(1976) == "MCMLXXVI"),
+     ?_assert(roman:to_roman(1977) == "MCMLXXVII"),
+     ?_assert(roman:to_roman(1978) == "MCMLXXVIII"),
+     ?_assert(roman:to_roman(1979) == "MCMLXXIX"),
+     ?_assert(roman:to_roman(1980) == "MCMLXXX"),
+     ?_assert(roman:to_roman(1981) == "MCMLXXXI"),
+     ?_assert(roman:to_roman(1982) == "MCMLXXXII"),
+     ?_assert(roman:to_roman(1983) == "MCMLXXXIII"),
+     ?_assert(roman:to_roman(1984) == "MCMLXXXIV"),
+     ?_assert(roman:to_roman(1985) == "MCMLXXXV"),
+     ?_assert(roman:to_roman(1986) == "MCMLXXXVI"),
+     ?_assert(roman:to_roman(1987) == "MCMLXXXVII"),
+     ?_assert(roman:to_roman(1988) == "MCMLXXXVIII"),
+     ?_assert(roman:to_roman(1989) == "MCMLXXXIX"),
+     ?_assert(roman:to_roman(1990) == "MCMXC"),
+     ?_assert(roman:to_roman(1991) == "MCMXCI"),
+     ?_assert(roman:to_roman(1992) == "MCMXCII"),
+     ?_assert(roman:to_roman(1993) == "MCMXCIII"),
+     ?_assert(roman:to_roman(1994) == "MCMXCIV"),
+     ?_assert(roman:to_roman(1995) == "MCMXCV"),
+     ?_assert(roman:to_roman(1996) == "MCMXCVI"),
+     ?_assert(roman:to_roman(1997) == "MCMXCVII"),
+     ?_assert(roman:to_roman(1998) == "MCMXCVIII"),
+     ?_assert(roman:to_roman(1999) == "MCMXCIX"),
+     ?_assert(roman:to_roman(2000) == "MM"),
+     ?_assert(roman:to_roman(2001) == "MMI"),
+     ?_assert(roman:to_roman(2002) == "MMII"),
+     ?_assert(roman:to_roman(2003) == "MMIII"),
+     ?_assert(roman:to_roman(2004) == "MMIV"),
+     ?_assert(roman:to_roman(2005) == "MMV"),
+     ?_assert(roman:to_roman(2006) == "MMVI"),
+     ?_assert(roman:to_roman(2007) == "MMVII"),
+     ?_assert(roman:to_roman(2008) == "MMVIII"),
+     ?_assert(roman:to_roman(2009) == "MMIX"),
+     ?_assert(roman:to_roman(2010) == "MMX"),
+     ?_assert(roman:to_roman(2011) == "MMXI"),
+     ?_assert(roman:to_roman(2012) == "MMXII"),
+     ?_assert(roman:to_roman(2013) == "MMXIII"),
+     ?_assert(roman:to_roman(2014) == "MMXIV"),
+     ?_assert(roman:to_roman(2015) == "MMXV"),
+     ?_assert(roman:to_roman(2016) == "MMXVI"),
+     ?_assert(roman:to_roman(2017) == "MMXVII"),
+     ?_assert(roman:to_roman(2018) == "MMXVIII"),
+     ?_assert(roman:to_roman(2019) == "MMXIX"),
+     ?_assert(roman:to_roman(2020) == "MMXX"),
+     ?_assert(roman:to_roman(2021) == "MMXXI"),
+     ?_assert(roman:to_roman(2022) == "MMXXII"),
+     ?_assert(roman:to_roman(2023) == "MMXXIII"),
+     ?_assert(roman:to_roman(2024) == "MMXXIV"),
+     ?_assert(roman:to_roman(2025) == "MMXXV"),
+     ?_assert(roman:to_roman(2026) == "MMXXVI"),
+     ?_assert(roman:to_roman(2027) == "MMXXVII"),
+     ?_assert(roman:to_roman(2028) == "MMXXVIII"),
+     ?_assert(roman:to_roman(2029) == "MMXXIX"),
+     ?_assert(roman:to_roman(2030) == "MMXXX"),
+     ?_assert(roman:to_roman(2031) == "MMXXXI"),
+     ?_assert(roman:to_roman(2032) == "MMXXXII"),
+     ?_assert(roman:to_roman(2033) == "MMXXXIII"),
+     ?_assert(roman:to_roman(2034) == "MMXXXIV"),
+     ?_assert(roman:to_roman(2035) == "MMXXXV"),
+     ?_assert(roman:to_roman(2036) == "MMXXXVI"),
+     ?_assert(roman:to_roman(2037) == "MMXXXVII"),
+     ?_assert(roman:to_roman(2038) == "MMXXXVIII"),
+     ?_assert(roman:to_roman(2039) == "MMXXXIX"),
+     ?_assert(roman:to_roman(2040) == "MMXL"),
+     ?_assert(roman:to_roman(2041) == "MMXLI"),
+     ?_assert(roman:to_roman(2042) == "MMXLII"),
+     ?_assert(roman:to_roman(2043) == "MMXLIII"),
+     ?_assert(roman:to_roman(2044) == "MMXLIV"),
+     ?_assert(roman:to_roman(2045) == "MMXLV"),
+     ?_assert(roman:to_roman(2046) == "MMXLVI"),
+     ?_assert(roman:to_roman(2047) == "MMXLVII"),
+     ?_assert(roman:to_roman(2048) == "MMXLVIII"),
+     ?_assert(roman:to_roman(2049) == "MMXLIX"),
+     ?_assert(roman:to_roman(2050) == "MML"),
+   %%  ].
 
-convert_number_three_to_roman_test()->
-    Res = roman:convert(3),
-    ?assertEqual("III",Res).
+%% indian_numeric_test()->
+%%     Result = roman:to_indian("I"),
+%%     ?assertEqual(1,Result).
 
-convert_number_four_to_roman_test()->
-    Res = roman:convert(4),
-    ?assertEqual("IV",Res).
+%% indian_2numeric_test()->
+%%     Result = roman:to_indian("II"),
+%%     ?assertEqual(2,Result).
 
-convert_number_five_to_roman_test()->
-    Res = roman:convert(5),
-    ?assertEqual("V",Res).
+%% indian_3numeric_test()->
+%%     Result = roman:to_indian("III"),
+%%     ?assertEqual(3,Result).
 
-convert_number_six_to_roman_test()->
-    Res = roman:convert(6),
-    ?assertEqual("VI",Res).
+%% indian_4numeric_test()->
+%%     Result = roman:to_indian("IV"),
+%%     ?assertEqual(4,Result).
 
-convert_number_seven_to_roman_test()->
-    Res = roman:convert(7),
-    ?assertEqual("VII",Res).
+%% indian_5numeric_test()->
+%%     Result = roman:to_indian("V"),
+%%     ?assertEqual(5,Result).
 
-convert_number_eight_to_roman_test()->
-    Res = roman:convert(8),
-    ?assertEqual("VIII",Res).
+%% indian_6numeric_test()->
+%%     Result = roman:to_indian("VI"),
+%%     ?assertEqual(6,Result).
 
-convert_number_nine_to_roman_test()->
-    Res = roman:convert(9),
-    ?assertEqual("IX",Res).
+%% indian_10numeric_test()->
+%%     Result = roman:to_indian("X"),
+%%     ?assertEqual(10,Result).
 
-convert_number_ten_to_roman_test()->
-    Res = roman:convert(10),
-    ?assertEqual("X",Res).
 
-convert_number_eleven_to_roman_test()->
-    Res = roman:convert(11),
-    ?assertEqual("XI",Res).
-
-convert_number_twelve_to_roman_test()->
-    Res = roman:convert(12),
-    ?assertEqual("XII",Res).
-
-convert_number_thirteen_to_roman_test()->
-    Res = roman:convert(13),
-    ?assertEqual("XIII",Res).
-
-convert_number_fourteen_to_roman_test()->
-    Res = roman:convert(14),
-    ?assertEqual("XIV",Res).
-
-convert_number_fifteen_to_roman_test()->
-    Res = roman:convert(15),
-    ?assertEqual("XV",Res).
-
-convert_number_sixteen_to_roman_test()->
-    Res = roman:convert(16),
-    ?assertEqual("XVI",Res).
-
-convert_number_seventeen_to_roman_test()->
-    Res = roman:convert(17),
-    ?assertEqual("XVII",Res).
-
-convert_number_eighteen_to_roman_test()->
-    Res = roman:convert(18),
-    ?assertEqual("XVIII",Res).
-
-convert_number_nineteen_to_roman_test()->
-    Res = roman:convert(19),
-    ?assertEqual("XIX",Res).
-
-convert_number_twenty_to_roman_test()->
-    Res = roman:convert(20),
-    ?assertEqual("XX",Res).
-
-convert_number_twentyone_to_roman_test()->
-    Res = roman:convert(21),
-    ?assertEqual("XXI",Res).
-
-convert_number_twentytwo_to_roman_test()->
-    Res = roman:convert(22),
-    ?assertEqual("XXII",Res).
-
-convert_number_twentythree_to_roman_test()->
-    Res = roman:convert(23),
-    ?assertEqual("XXIII",Res).
-
-convert_number_twentyfour_to_roman_test()->
-    Res = roman:convert(24),
-    ?assertEqual("XXIV",Res).
-
-convert_number_twentyfive_to_roman_test()->
-    Res = roman:convert(25),
-    ?assertEqual("XXV",Res).
-
-convert_number_twentysix_to_roman_test()->
-    Res = roman:convert(26),
-    ?assertEqual("XXVI",Res).
-
-convert_number_twentyseven_to_roman_test()->
-    Res = roman:convert(27),
-    ?assertEqual("XXVII",Res).
-
-convert_number_twentyeight_to_roman_test()->
-    Res = roman:convert(28),
-    ?assertEqual("XXVIII",Res).
-
-convert_number_twentynine_to_roman_test()->
-    Res = roman:convert(29),
-    ?assertEqual("XXIX",Res).
-
-convert_number_thirty_to_roman_test()->
-    Res = roman:convert(30),
-    ?assertEqual("XXX",Res).
-
-convert_number_thirtyone_to_roman_test()->
-    Res = roman:convert(31),
-    ?assertEqual("XXXI",Res).
-
-convert_number_thirtytwo_to_roman_test()->
-    Res = roman:convert(32),
-    ?assertEqual("XXXII",Res).
-
-convert_number_thirtythree_to_roman_test()->
-    Res = roman:convert(33),
-    ?assertEqual("XXXIII",Res).
-
-convert_number_thirtyseven_to_roman_test()->
-    Res = roman:convert(37),
-    ?assertEqual("XXXVII",Res).
-
-convert_number_thirtyeight_to_roman_test()->
-    Res = roman:convert(38),
-    ?assertEqual("XXXVIII",Res).
-
-convert_number_thirtynine_to_roman_test()->
-    Res = roman:convert(39),
-    ?assertEqual("XXXIX",Res).
-
-convert_number_forty_to_roman_test()->
-    Res = roman:convert(40),
-    ?assertEqual("XL",Res).
-
-convert_number_fortyone_to_roman_test()->
-    Res = roman:convert(41),
-    ?assertEqual("XLI",Res).
-
-convert_number_fortythree_to_roman_test()->
-    Res = roman:convert(43),
-    ?assertEqual("XLIII",Res).
-
-convert_number_fortyfive_to_roman_test()->
-    Res = roman:convert(45),
-    ?assertEqual("XLV",Res).
-
-convert_number_fortyeight_to_roman_test()->
-    Res = roman:convert(48),
-    ?assertEqual("XLVIII",Res).
-
-convert_number_fifty_to_roman_test()->
-    Res = roman:convert(50),
-    ?assertEqual("L",Res).
-
-convert_number_fiftythree_to_roman_test()->
-    Res = roman:convert(53),
-    ?assertEqual("LIII",Res).
-
-convert_number_fiftyfive_to_roman_test()->
-    Res = roman:convert(55),
-    ?assertEqual("LV",Res).
-
-convert_number_fiftyeight_to_roman_test()->
-    Res = roman:convert(58),
-    ?assertEqual("LVIII",Res).
-
-convert_number_ninety_to_roman_test()->
-    Res = roman:convert(90),
-    ?assertEqual("XC",Res).
-
-convert_number_ninetythree_to_roman_test()->
-    Res = roman:convert(93),
-    ?assertEqual("XCIII",Res).
-
-convert_number_ninetyfive_to_roman_test()->
-    Res = roman:convert(95),
-    ?assertEqual("XCV",Res).
-
-convert_number_ninetyeight_to_roman_test()->
-    Res = roman:convert(98),
-    ?assertEqual("XCVIII",Res).
-
-convert_number_hundred_to_roman_test()->
-    Res = roman:convert(100),
-    ?assertEqual("C",Res).
-
-convert_number_hundredthree_to_roman_test()->
-    Res = roman:convert(103),
-    ?assertEqual("CIII",Res).
-
-convert_number_hundredfive_to_roman_test()->
-    Res = roman:convert(105),
-    ?assertEqual("CV",Res).
-
-convert_number_hundredeight_to_roman_test()->
-    Res = roman:convert(108),
-    ?assertEqual("CVIII",Res).
-
-convert_number_fourhundred_to_roman_test()->
-    Res = roman:convert(400),
-    ?assertEqual("CD",Res).
-
-convert_number_fourhundredfour_to_roman_test()->
-    Res = roman:convert(404),
-    ?assertEqual("CDIV",Res).
-
-convert_number_fourhundredten_to_roman_test()->
-    Res = roman:convert(410),
-    ?assertEqual("CDX",Res).
-
-convert_number_fivehundredseven_to_roman_test()->
-    Res = roman:convert(507),
-    ?assertEqual("DVII",Res).
-
-convert_number_fivehundredfifty_to_roman_test()->
-    Res = roman:convert(550),
-    ?assertEqual("DL",Res).
-
-convert_number_ninehundred_to_roman_test()->
-    Res = roman:convert(900),
-    ?assertEqual("CM",Res).
-
-convert_number_fourThousandNineHundredNinetyNine_to_roman_test()->
-    Res = roman:convert(4999),
-    ?assertEqual("MMMMCMXCIX",Res).
+%% roman_test_()->
+%%     [
+?_assert(roman:to_indian("I") == 1),
+?_assert(roman:to_indian("II") == 2),
+?_assert(roman:to_indian("III") == 3),
+?_assert(roman:to_indian("IV") == 4),
+?_assert(roman:to_indian("V") == 5),
+?_assert(roman:to_indian("VI") == 6),
+?_assert(roman:to_indian("VII") == 7),
+?_assert(roman:to_indian("VIII") == 8),
+?_assert(roman:to_indian("IX") == 9),
+?_assert(roman:to_indian("X") == 10),
+?_assert(roman:to_indian("XI") == 11),
+?_assert(roman:to_indian("XII") == 12),
+?_assert(roman:to_indian("XIII") == 13),
+?_assert(roman:to_indian("XIV") == 14),
+?_assert(roman:to_indian("XV") == 15),
+?_assert(roman:to_indian("XVI") == 16),
+?_assert(roman:to_indian("XVII") == 17),
+?_assert(roman:to_indian("XVIII") == 18),
+?_assert(roman:to_indian("XIX") == 19),
+?_assert(roman:to_indian("XX") == 20),
+?_assert(roman:to_indian("XXI") == 21),
+?_assert(roman:to_indian("XXII") == 22),
+?_assert(roman:to_indian("XXIII") == 23),
+?_assert(roman:to_indian("XXIV") == 24),
+?_assert(roman:to_indian("XXV") == 25),
+?_assert(roman:to_indian("XXVI") == 26),
+?_assert(roman:to_indian("XXVII") == 27),
+?_assert(roman:to_indian("XXVIII") == 28),
+?_assert(roman:to_indian("XXIX") == 29),
+?_assert(roman:to_indian("XXX") == 30),
+?_assert(roman:to_indian("XXXI") == 31),
+?_assert(roman:to_indian("XXXII") == 32),
+?_assert(roman:to_indian("XXXIII") == 33),
+?_assert(roman:to_indian("XXXIV") == 34),
+?_assert(roman:to_indian("XXXV") == 35),
+?_assert(roman:to_indian("XXXVI") == 36),
+?_assert(roman:to_indian("XXXVII") == 37),
+?_assert(roman:to_indian("XXXVIII") == 38),
+?_assert(roman:to_indian("XXXIX") == 39),
+?_assert(roman:to_indian("XL") == 40),
+?_assert(roman:to_indian("XLI") == 41),
+?_assert(roman:to_indian("XLII") == 42),
+?_assert(roman:to_indian("XLIII") == 43),
+?_assert(roman:to_indian("XLIV") == 44),
+?_assert(roman:to_indian("XLV") == 45),
+?_assert(roman:to_indian("XLVI") == 46),
+?_assert(roman:to_indian("XLVII") == 47),
+?_assert(roman:to_indian("XLVIII") == 48),
+?_assert(roman:to_indian("XLIX") == 49),
+?_assert(roman:to_indian("L") == 50),
+?_assert(roman:to_indian("LI") == 51),
+?_assert(roman:to_indian("LII") == 52),
+?_assert(roman:to_indian("LIII") == 53),
+?_assert(roman:to_indian("LIV") == 54),
+?_assert(roman:to_indian("LV") == 55),
+?_assert(roman:to_indian("LVI") == 56),
+?_assert(roman:to_indian("LVII") == 57),
+?_assert(roman:to_indian("LVIII") == 58),
+?_assert(roman:to_indian("LIX") == 59),
+?_assert(roman:to_indian("LX") == 60),
+?_assert(roman:to_indian("LXI") == 61),
+?_assert(roman:to_indian("LXII") == 62),
+?_assert(roman:to_indian("LXIII") == 63),
+?_assert(roman:to_indian("LXIV") == 64),
+?_assert(roman:to_indian("LXV") == 65),
+?_assert(roman:to_indian("LXVI") == 66),
+?_assert(roman:to_indian("LXVII") == 67),
+?_assert(roman:to_indian("LXVIII") == 68),
+?_assert(roman:to_indian("LXIX") == 69),
+?_assert(roman:to_indian("LXX") == 70),
+?_assert(roman:to_indian("LXXI") == 71),
+?_assert(roman:to_indian("LXXII") == 72),
+?_assert(roman:to_indian("LXXIII") == 73),
+?_assert(roman:to_indian("LXXIV") == 74),
+?_assert(roman:to_indian("LXXV") == 75),
+?_assert(roman:to_indian("LXXVI") == 76),
+?_assert(roman:to_indian("LXXVII") == 77),
+?_assert(roman:to_indian("LXXVIII") == 78),
+?_assert(roman:to_indian("LXXIX") == 79),
+?_assert(roman:to_indian("LXXX") == 80),
+?_assert(roman:to_indian("LXXXI") == 81),
+?_assert(roman:to_indian("LXXXII") == 82),
+?_assert(roman:to_indian("LXXXIII") == 83),
+?_assert(roman:to_indian("LXXXIV") == 84),
+?_assert(roman:to_indian("LXXXV") == 85),
+?_assert(roman:to_indian("LXXXVI") == 86),
+?_assert(roman:to_indian("LXXXVII") == 87),
+?_assert(roman:to_indian("LXXXVIII") == 88),
+?_assert(roman:to_indian("LXXXIX") == 89),
+?_assert(roman:to_indian("XC") == 90),
+?_assert(roman:to_indian("XCI") == 91),
+?_assert(roman:to_indian("XCII") == 92),
+?_assert(roman:to_indian("XCIII") == 93),
+?_assert(roman:to_indian("XCIV") == 94),
+?_assert(roman:to_indian("XCV") == 95),
+?_assert(roman:to_indian("XCVI") == 96),
+?_assert(roman:to_indian("XCVII") == 97),
+?_assert(roman:to_indian("XCVIII") == 98),
+?_assert(roman:to_indian("XCIX") == 99),
+?_assert(roman:to_indian("C") == 100),
+?_assert(roman:to_indian("CI") == 101),
+?_assert(roman:to_indian("CII") == 102),
+?_assert(roman:to_indian("CIII") == 103),
+?_assert(roman:to_indian("CIV") == 104),
+?_assert(roman:to_indian("CV") == 105),
+?_assert(roman:to_indian("CVI") == 106),
+?_assert(roman:to_indian("CVII") == 107),
+?_assert(roman:to_indian("CVIII") == 108),
+?_assert(roman:to_indian("CIX") == 109),
+?_assert(roman:to_indian("CX") == 110),
+?_assert(roman:to_indian("CXI") == 111),
+?_assert(roman:to_indian("CXII") == 112),
+?_assert(roman:to_indian("CXIII") == 113),
+?_assert(roman:to_indian("CXIV") == 114),
+?_assert(roman:to_indian("CXV") == 115),
+?_assert(roman:to_indian("CXVI") == 116),
+?_assert(roman:to_indian("CXVII") == 117),
+?_assert(roman:to_indian("CXVIII") == 118),
+?_assert(roman:to_indian("CXIX") == 119),
+?_assert(roman:to_indian("CXX") == 120),
+?_assert(roman:to_indian("CXXI") == 121),
+?_assert(roman:to_indian("CXXII") == 122),
+?_assert(roman:to_indian("CXXIII") == 123),
+?_assert(roman:to_indian("CXXIV") == 124),
+?_assert(roman:to_indian("CXXV") == 125),
+?_assert(roman:to_indian("CXXVI") == 126),
+?_assert(roman:to_indian("CXXVII") == 127),
+?_assert(roman:to_indian("CXXVIII") == 128),
+?_assert(roman:to_indian("CXXIX") == 129),
+?_assert(roman:to_indian("CXXX") == 130),
+?_assert(roman:to_indian("CXXXI") == 131),
+?_assert(roman:to_indian("CXXXII") == 132),
+?_assert(roman:to_indian("CXXXIII") == 133),
+?_assert(roman:to_indian("CXXXIV") == 134),
+?_assert(roman:to_indian("CXXXV") == 135),
+?_assert(roman:to_indian("CXXXVI") == 136),
+?_assert(roman:to_indian("CXXXVII") == 137),
+?_assert(roman:to_indian("CXXXVIII") == 138),
+?_assert(roman:to_indian("CXXXIX") == 139),
+?_assert(roman:to_indian("CXL") == 140),
+?_assert(roman:to_indian("CXLI") == 141),
+?_assert(roman:to_indian("CXLII") == 142),
+?_assert(roman:to_indian("CXLIII") == 143),
+?_assert(roman:to_indian("CXLIV") == 144),
+?_assert(roman:to_indian("CXLV") == 145),
+?_assert(roman:to_indian("CXLVI") == 146),
+?_assert(roman:to_indian("CXLVII") == 147),
+?_assert(roman:to_indian("CXLVIII") == 148),
+?_assert(roman:to_indian("CXLIX") == 149),
+?_assert(roman:to_indian("CL") == 150),
+?_assert(roman:to_indian("CLI") == 151),
+?_assert(roman:to_indian("CLII") == 152),
+?_assert(roman:to_indian("CLIII") == 153),
+?_assert(roman:to_indian("CLIV") == 154),
+?_assert(roman:to_indian("CLV") == 155),
+?_assert(roman:to_indian("CLVI") == 156),
+?_assert(roman:to_indian("CLVII") == 157),
+?_assert(roman:to_indian("CLVIII") == 158),
+?_assert(roman:to_indian("CLIX") == 159),
+?_assert(roman:to_indian("CLX") == 160),
+?_assert(roman:to_indian("CLXI") == 161),
+?_assert(roman:to_indian("CLXII") == 162),
+?_assert(roman:to_indian("CLXIII") == 163),
+?_assert(roman:to_indian("CLXIV") == 164),
+?_assert(roman:to_indian("CLXV") == 165),
+?_assert(roman:to_indian("CLXVI") == 166),
+?_assert(roman:to_indian("CLXVII") == 167),
+?_assert(roman:to_indian("CLXVIII") == 168),
+?_assert(roman:to_indian("CLXIX") == 169),
+?_assert(roman:to_indian("CLXX") == 170),
+?_assert(roman:to_indian("CLXXI") == 171),
+?_assert(roman:to_indian("CLXXII") == 172),
+?_assert(roman:to_indian("CLXXIII") == 173),
+?_assert(roman:to_indian("CLXXIV") == 174),
+?_assert(roman:to_indian("CLXXV") == 175),
+?_assert(roman:to_indian("CLXXVI") == 176),
+?_assert(roman:to_indian("CLXXVII") == 177),
+?_assert(roman:to_indian("CLXXVIII") == 178),
+?_assert(roman:to_indian("CLXXIX") == 179),
+?_assert(roman:to_indian("CLXXX") == 180),
+?_assert(roman:to_indian("CLXXXI") == 181),
+?_assert(roman:to_indian("CLXXXII") == 182),
+?_assert(roman:to_indian("CLXXXIII") == 183),
+?_assert(roman:to_indian("CLXXXIV") == 184),
+?_assert(roman:to_indian("CLXXXV") == 185),
+?_assert(roman:to_indian("CLXXXVI") == 186),
+?_assert(roman:to_indian("CLXXXVII") == 187),
+?_assert(roman:to_indian("CLXXXVIII") == 188),
+?_assert(roman:to_indian("CLXXXIX") == 189),
+?_assert(roman:to_indian("CXC") == 190),
+?_assert(roman:to_indian("CXCI") == 191),
+?_assert(roman:to_indian("CXCII") == 192),
+?_assert(roman:to_indian("CXCIII") == 193),
+?_assert(roman:to_indian("CXCIV") == 194),
+?_assert(roman:to_indian("CXCV") == 195),
+?_assert(roman:to_indian("CXCVI") == 196),
+?_assert(roman:to_indian("CXCVII") == 197),
+?_assert(roman:to_indian("CXCVIII") == 198),
+?_assert(roman:to_indian("CXCIX") == 199),
+?_assert(roman:to_indian("CC") == 200),
+?_assert(roman:to_indian("MCM") == 1900),
+?_assert(roman:to_indian("MCMI") == 1901),
+?_assert(roman:to_indian("MCMII") == 1902),
+?_assert(roman:to_indian("MCMIII") == 1903),
+?_assert(roman:to_indian("MCMIV") == 1904),
+?_assert(roman:to_indian("MCMV") == 1905),
+?_assert(roman:to_indian("MCMVI") == 1906),
+?_assert(roman:to_indian("MCMVII") == 1907),
+?_assert(roman:to_indian("MCMVIII") == 1908),
+?_assert(roman:to_indian("MCMIX") == 1909),
+?_assert(roman:to_indian("MCMX") == 1910),
+?_assert(roman:to_indian("MCMXI") == 1911),
+?_assert(roman:to_indian("MCMXII") == 1912),
+?_assert(roman:to_indian("MCMXIII") == 1913),
+?_assert(roman:to_indian("MCMXIV") == 1914),
+?_assert(roman:to_indian("MCMXV") == 1915),
+?_assert(roman:to_indian("MCMXVI") == 1916),
+?_assert(roman:to_indian("MCMXVII") == 1917),
+?_assert(roman:to_indian("MCMXVIII") == 1918),
+?_assert(roman:to_indian("MCMXIX") == 1919),
+?_assert(roman:to_indian("MCMXX") == 1920),
+?_assert(roman:to_indian("MCMXXI") == 1921),
+?_assert(roman:to_indian("MCMXXII") == 1922),
+?_assert(roman:to_indian("MCMXXIII") == 1923),
+?_assert(roman:to_indian("MCMXXIV") == 1924),
+?_assert(roman:to_indian("MCMXXV") == 1925),
+?_assert(roman:to_indian("MCMXXVI") == 1926),
+?_assert(roman:to_indian("MCMXXVII") == 1927),
+?_assert(roman:to_indian("MCMXXVIII") == 1928),
+?_assert(roman:to_indian("MCMXXIX") == 1929),
+?_assert(roman:to_indian("MCMXXX") == 1930),
+?_assert(roman:to_indian("MCMXXXI") == 1931),
+?_assert(roman:to_indian("MCMXXXII") == 1932),
+?_assert(roman:to_indian("MCMXXXIII") == 1933),
+?_assert(roman:to_indian("MCMXXXIV") == 1934),
+?_assert(roman:to_indian("MCMXXXV") == 1935),
+?_assert(roman:to_indian("MCMXXXVI") == 1936),
+?_assert(roman:to_indian("MCMXXXVII") == 1937),
+?_assert(roman:to_indian("MCMXXXVIII") == 1938),
+?_assert(roman:to_indian("MCMXXXIX") == 1939),
+?_assert(roman:to_indian("MCMXL") == 1940),
+?_assert(roman:to_indian("MCMXLI") == 1941),
+?_assert(roman:to_indian("MCMXLII") == 1942),
+?_assert(roman:to_indian("MCMXLIII") == 1943),
+?_assert(roman:to_indian("MCMXLIV") == 1944),
+?_assert(roman:to_indian("MCMXLV") == 1945),
+?_assert(roman:to_indian("MCMXLVI") == 1946),
+?_assert(roman:to_indian("MCMXLVII") == 1947),
+?_assert(roman:to_indian("MCMXLVIII") == 1948),
+?_assert(roman:to_indian("MCMXLIX") == 1949),
+?_assert(roman:to_indian("MCML") == 1950),
+?_assert(roman:to_indian("MCMLI") == 1951),
+?_assert(roman:to_indian("MCMLII") == 1952),
+?_assert(roman:to_indian("MCMLIII") == 1953),
+?_assert(roman:to_indian("MCMLIV") == 1954),
+?_assert(roman:to_indian("MCMLV") == 1955),
+?_assert(roman:to_indian("MCMLVI") == 1956),
+?_assert(roman:to_indian("MCMLVII") == 1957),
+?_assert(roman:to_indian("MCMLVIII") == 1958),
+?_assert(roman:to_indian("MCMLIX") == 1959),
+?_assert(roman:to_indian("MCMLX") == 1960),
+?_assert(roman:to_indian("MCMLXI") == 1961),
+?_assert(roman:to_indian("MCMLXII") == 1962),
+?_assert(roman:to_indian("MCMLXIII") == 1963),
+?_assert(roman:to_indian("MCMLXIV") == 1964),
+?_assert(roman:to_indian("MCMLXV") == 1965),
+?_assert(roman:to_indian("MCMLXVI") == 1966),
+?_assert(roman:to_indian("MCMLXVII") == 1967),
+?_assert(roman:to_indian("MCMLXVIII") == 1968),
+?_assert(roman:to_indian("MCMLXIX") == 1969),
+?_assert(roman:to_indian("MCMLXX") == 1970),
+?_assert(roman:to_indian("MCMLXXI") == 1971),
+?_assert(roman:to_indian("MCMLXXII") == 1972),
+?_assert(roman:to_indian("MCMLXXIII") == 1973),
+?_assert(roman:to_indian("MCMLXXIV") == 1974),
+?_assert(roman:to_indian("MCMLXXV") == 1975),
+?_assert(roman:to_indian("MCMLXXVI") == 1976),
+?_assert(roman:to_indian("MCMLXXVII") == 1977),
+?_assert(roman:to_indian("MCMLXXVIII") == 1978),
+?_assert(roman:to_indian("MCMLXXIX") == 1979),
+?_assert(roman:to_indian("MCMLXXX") == 1980),
+?_assert(roman:to_indian("MCMLXXXI") == 1981),
+?_assert(roman:to_indian("MCMLXXXII") == 1982),
+?_assert(roman:to_indian("MCMLXXXIII") == 1983),
+?_assert(roman:to_indian("MCMLXXXIV") == 1984),
+?_assert(roman:to_indian("MCMLXXXV") == 1985),
+?_assert(roman:to_indian("MCMLXXXVI") == 1986),
+?_assert(roman:to_indian("MCMLXXXVII") == 1987),
+?_assert(roman:to_indian("MCMLXXXVIII") == 1988),
+?_assert(roman:to_indian("MCMLXXXIX") == 1989),
+?_assert(roman:to_indian("MCMXC") == 1990),
+?_assert(roman:to_indian("MCMXCI") == 1991),
+?_assert(roman:to_indian("MCMXCII") == 1992),
+?_assert(roman:to_indian("MCMXCIII") == 1993),
+?_assert(roman:to_indian("MCMXCIV") == 1994),
+?_assert(roman:to_indian("MCMXCV") == 1995),
+?_assert(roman:to_indian("MCMXCVI") == 1996),
+?_assert(roman:to_indian("MCMXCVII") == 1997),
+?_assert(roman:to_indian("MCMXCVIII") == 1998),
+?_assert(roman:to_indian("MCMXCIX") == 1999),
+?_assert(roman:to_indian("MM") == 2000),
+?_assert(roman:to_indian("MMI") == 2001),
+?_assert(roman:to_indian("MMII") == 2002),
+?_assert(roman:to_indian("MMIII") == 2003),
+?_assert(roman:to_indian("MMIV") == 2004),
+?_assert(roman:to_indian("MMV") == 2005),
+?_assert(roman:to_indian("MMVI") == 2006),
+?_assert(roman:to_indian("MMVII") == 2007),
+?_assert(roman:to_indian("MMVIII") == 2008),
+?_assert(roman:to_indian("MMIX") == 2009),
+?_assert(roman:to_indian("MMX") == 2010),
+?_assert(roman:to_indian("MMXI") == 2011),
+?_assert(roman:to_indian("MMXII") == 2012),
+?_assert(roman:to_indian("MMXIII") == 2013),
+?_assert(roman:to_indian("MMXIV") == 2014),
+?_assert(roman:to_indian("MMXV") == 2015),
+?_assert(roman:to_indian("MMXVI") == 2016),
+?_assert(roman:to_indian("MMXVII") == 2017),
+?_assert(roman:to_indian("MMXVIII") == 2018),
+?_assert(roman:to_indian("MMXIX") == 2019),
+?_assert(roman:to_indian("MMXX") == 2020),
+?_assert(roman:to_indian("MMXXI") == 2021),
+?_assert(roman:to_indian("MMXXII") == 2022),
+?_assert(roman:to_indian("MMXXIII") == 2023),
+?_assert(roman:to_indian("MMXXIV") == 2024),
+?_assert(roman:to_indian("MMXXV") == 2025),
+?_assert(roman:to_indian("MMXXVI") == 2026),
+?_assert(roman:to_indian("MMXXVII") == 2027),
+?_assert(roman:to_indian("MMXXVIII") == 2028),
+?_assert(roman:to_indian("MMXXIX") == 2029),
+?_assert(roman:to_indian("MMXXX") == 2030),
+?_assert(roman:to_indian("MMXXXI") == 2031),
+?_assert(roman:to_indian("MMXXXII") == 2032),
+?_assert(roman:to_indian("MMXXXIII") == 2033),
+?_assert(roman:to_indian("MMXXXIV") == 2034),
+?_assert(roman:to_indian("MMXXXV") == 2035),
+?_assert(roman:to_indian("MMXXXVI") == 2036),
+?_assert(roman:to_indian("MMXXXVII") == 2037),
+?_assert(roman:to_indian("MMXXXVIII") == 2038),
+?_assert(roman:to_indian("MMXXXIX") == 2039),
+?_assert(roman:to_indian("MMXL") == 2040),
+?_assert(roman:to_indian("MMXLI") == 2041),
+?_assert(roman:to_indian("MMXLII") == 2042),
+?_assert(roman:to_indian("MMXLIII") == 2043),
+?_assert(roman:to_indian("MMXLIV") == 2044),
+?_assert(roman:to_indian("MMXLV") == 2045),
+?_assert(roman:to_indian("MMXLVI") == 2046),
+?_assert(roman:to_indian("MMXLVII") == 2047),
+?_assert(roman:to_indian("MMXLVIII") == 2048),
+?_assert(roman:to_indian("MMXLIX") == 2049),
+?_assert(roman:to_indian("MML") == 2050)
+].

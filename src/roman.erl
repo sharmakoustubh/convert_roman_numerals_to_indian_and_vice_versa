@@ -1,8 +1,8 @@
 -module(roman).
--export([convert/1, convert/2]).
+-export([to_roman/1, convert/2, get_value/1]).
 -compile(export_all).
 
-convert(Number)->
+to_roman(Number)->
     convert(Number,[]).
 
 convert(0,Res)->
@@ -74,3 +74,40 @@ convert(Number, Res)->
 	    New_Res = Res ++ "I",
 	    convert(New_N, New_Res)
 	end.
+
+to_indian(Roman_number)->
+    to_indian(Roman_number,0).
+
+to_indian([],Result) ->
+    Result;
+to_indian([H1,H2|T],Result) ->
+    First_Val = get_value(H1),
+    Second_Val = get_value(H2),
+    case First_Val >= Second_Val of
+	true ->
+	    to_indian([H2|T], Result + First_Val);
+	false ->
+	    to_indian([H2|T], Result - First_Val)
+	end;
+to_indian([H],Result) ->
+    to_indian([], Result + get_value(H)).
+
+
+
+get_value(Number)->
+    case Number of
+	$M ->
+	    1000;
+	$D ->
+	    100;
+	$C ->
+	    100;
+	$L ->
+            50;
+	$X ->
+            10;
+     	$V ->
+            5;
+       $I ->
+            1
+    end.
