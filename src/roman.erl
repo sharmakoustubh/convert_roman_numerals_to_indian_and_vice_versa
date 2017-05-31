@@ -88,10 +88,9 @@ to_indian([H1,H2|T],Result) ->
 	    to_indian([H2|T], Result + First_Val);
 	false ->
 	    to_indian([H2|T], Result - First_Val)
-	end;
+    end;
 to_indian([H],Result) ->
     to_indian([], Result + get_value(H)).
-
 
 
 get_value(Number)->
