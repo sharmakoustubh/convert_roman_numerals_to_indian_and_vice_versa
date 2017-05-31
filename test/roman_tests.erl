@@ -203,6 +203,8 @@ roman_test_()->
      ?_assert(roman:to_roman(198) == "CXCVIII"),
      ?_assert(roman:to_roman(199) == "CXCIX"),
      ?_assert(roman:to_roman(200) == "CC"),
+     ?_assert(roman:to_roman(444) == "CDXLIV"),
+     ?_assert(roman:to_roman(555) == "DLV"),
      ?_assert(roman:to_roman(1900) == "MCM"),
      ?_assert(roman:to_roman(1901) == "MCMI"),
      ?_assert(roman:to_roman(1902) == "MCMII"),
@@ -704,5 +706,6 @@ roman_test_()->
      ?_assert(roman:to_indian("MMXLVII") == 2047),
      ?_assert(roman:to_indian("MMXLVIII") == 2048),
      ?_assert(roman:to_indian("MMXLIX") == 2049),
-     ?_assert(roman:to_indian("MML") == 2050)
+     ?_assert(roman:to_indian("MML") == 2050),
+     ?_assert(roman:to_indian("DI") == 501)
     ].

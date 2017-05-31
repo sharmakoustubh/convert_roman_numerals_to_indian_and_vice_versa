@@ -80,6 +80,8 @@ to_indian(Roman_number)->
 
 to_indian([],Result) ->
     Result;
+to_indian([H],Result) ->
+    to_indian([], Result + get_value(H));
 to_indian([H1,H2|T],Result) ->
     First_Val = get_value(H1),
     Second_Val = get_value(H2),
@@ -88,9 +90,7 @@ to_indian([H1,H2|T],Result) ->
 	    to_indian([H2|T], Result + First_Val);
 	false ->
 	    to_indian([H2|T], Result - First_Val)
-    end;
-to_indian([H],Result) ->
-    to_indian([], Result + get_value(H)).
+    end.
 
 
 get_value(Number)->
@@ -98,7 +98,7 @@ get_value(Number)->
 	$M ->
 	    1000;
 	$D ->
-	    100;
+	    500;
 	$C ->
 	    100;
 	$L ->
