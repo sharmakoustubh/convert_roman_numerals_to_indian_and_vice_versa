@@ -1,6 +1,9 @@
 -module(roman).
--export([to_roman/1, convert/2, get_value/1]).
+-export([to_roman/1, to_indian/1]).
+
+-ifdef(TEST).
 -compile(export_all).
+-endif.
 
 to_roman(Number)->
     convert(Number,[]).
