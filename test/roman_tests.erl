@@ -709,3 +709,14 @@ roman_test_()->
      ?_assert(roman:to_indian("MML") == 2050),
      ?_assert(roman:to_indian("DI") == 501)
     ].
+
+
+subtract_number_and_add_roman_letter1000_test() ->
+    Result = roman:subtract_number_and_add_roman_letter(4506, 1000, [], "M"),
+    Expect = {3506,"M"},
+    ?assertEqual(Expect, Result).
+
+subtract_number_and_add_roman_letter100_test() ->
+    Result = roman:subtract_number_and_add_roman_letter(347, 100, "M", "C"),
+    Expect = {247,"MC"},
+    ?assertEqual(Expect, Result).

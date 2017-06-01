@@ -1,5 +1,5 @@
 -module(roman).
--export([to_roman/1, to_indian/1]).
+-export([to_roman/1, to_indian/1, subtract_number_and_add_roman_letter/4]).
 
 -ifdef(TEST).
 -compile(export_all).
@@ -13,70 +13,50 @@ convert(0,Res)->
 convert(Number, Res)->
     case Number of
 	N  when N >= 1000  ->
-	    New_N = N - 1000,
-	    New_Res = Res ++ "M",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 1000, Res, "M");
+	
 	N  when N >= 900  ->
-	    New_N = N - 900,
-	    New_Res = Res ++ "CM",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 900, Res, "CM");
+	
 	N  when N >= 500  ->
-	    New_N = N - 500,
-	    New_Res = Res ++ "D",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 500, Res, "D");
+	
 	N  when N >= 400  ->
-	    New_N = N - 400,
-	    New_Res = Res ++ "CD",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 400, Res, "CD");
+	
 	N  when N >= 100  ->
-	    New_N = N - 100,
-	    New_Res = Res ++ "C",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 100, Res, "C");
+	
 	N  when N >= 90  ->
-	    New_N = N - 90,
-	    New_Res = Res ++ "XC",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 90, Res, "XC");
+	
 	N  when N >= 50  ->
-	    New_N = N - 50,
-	    New_Res = Res ++ "L",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 50, Res, "L");
+	
 	N  when N >= 40  ->
-	    New_N = N - 40,
-	    New_Res = Res ++ "XL",
-	    convert(New_N, New_Res);
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 40, Res, "XL");
 	
 	N  when N >= 10  ->
-	    New_N = N - 10,
-	    New_Res = Res ++ "X",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 10, Res, "X");
+	
 	N when N == 9  ->
-	    New_N = N - 9,
-	    New_Res = Res ++ "IX",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 9, Res, "IX");
+	
 	N  when N >= 5  ->
-	    New_N = N - 5,
-	    New_Res = Res ++ "V",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 5, Res, "V");
+	
 	N when N == 4  ->
-	    New_N = N - 4,
-	    New_Res = Res ++ "IV",
-	    convert(New_N, New_Res);
-
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 4, Res, "IV");
+	
 	N ->
-	    New_N = N - 1,
-	    New_Res = Res ++ "I",
-	    convert(New_N, New_Res)
-	end.
+	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 1, Res, "I")
+	end,
+    convert(New_N, New_Res).
+
+subtract_number_and_add_roman_letter(Indian_num, Substract, Roman_num, Add) ->
+    Num = Indian_num - Substract,
+    List = Roman_num ++ Add,
+    {Num, List}.
 
 to_indian(Roman_number)->
     to_indian(Roman_number,0).
@@ -94,7 +74,6 @@ to_indian([H1,H2|T],Result) ->
 	false ->
 	    to_indian([H2|T], Result - First_Val)
     end.
-
 
 get_value(Number)->
     case Number of
