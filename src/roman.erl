@@ -1,5 +1,5 @@
 -module(roman).
--export([to_roman/1, to_indian/1, get_largest_unit/1]).
+-export([to_roman/1, to_indian/1, get_largest_unit/1, get_roman_numeral/1]).
 
 -ifdef(TEST).
 -compile(export_all).
@@ -46,35 +46,10 @@ get_largest_unit(Number) ->
 	end.
 
 get_roman_numeral(Number) ->
-    case Number of
-	 1000 ->
-	    "M";
-	900  ->
-	    "CM";
-	500 ->
-	    "D";
-	400  ->
-	    "CD";
-	100 ->
-	    "C";
-	90  ->
-	    "XC";
-	50 ->
-	    "L";
-	40  ->
-	    "XL";
-	10 ->
-	    "X";
-	9  ->
-	    "IX";
-	5 ->
-	    "V";
-	4  ->
-	    "IV";
-	_ ->
-	    "I"
-	end.
-    
+    List = [{1000, "M"},{900, "CM"},{500, "D"},{400, "CD"},{100, "C"},{90, "XC"},{50, "L"},{40, "XL"},{10, "X"},{9, "IX"},{5, "V"},{4, "IV"},{1, "I"}],
+    Res = proplists:get_value(Number, List),
+    io:format("~p~n",[Res]),
+    Res.
 
 to_indian(Roman_number)->
     to_indian(Roman_number,0).

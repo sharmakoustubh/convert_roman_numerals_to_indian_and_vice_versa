@@ -720,3 +720,8 @@ get_largest_unit999_test() ->
     Expect = 900,
     Result = roman:get_largest_unit(999),
     ?assertEqual(Expect, Result).
+
+get_roman_numeral_test() ->
+    Expect = "CM",
+    Result = roman:get_roman_numeral(900),
+    ?assertEqual(Expect, Result).
