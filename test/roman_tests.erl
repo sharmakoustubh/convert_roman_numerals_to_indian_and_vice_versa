@@ -711,12 +711,12 @@ roman_test_()->
     ].
 
 
-subtract_number_and_add_roman_letter1000_test() ->
-    Result = roman:subtract_number_and_add_roman_letter(4506, 1000, [], "M"),
-    Expect = {3506,"M"},
+get_largest_unit_test() ->
+    Expect = 1000,
+    Result = roman:get_largest_unit(4670),
     ?assertEqual(Expect, Result).
 
-subtract_number_and_add_roman_letter100_test() ->
-    Result = roman:subtract_number_and_add_roman_letter(347, 100, "M", "C"),
-    Expect = {247,"MC"},
+get_largest_unit999_test() ->
+    Expect = 900,
+    Result = roman:get_largest_unit(999),
     ?assertEqual(Expect, Result).

@@ -1,5 +1,5 @@
 -module(roman).
--export([to_roman/1, to_indian/1, subtract_number_and_add_roman_letter/4]).
+-export([to_roman/1, to_indian/1, get_largest_unit/1]).
 
 -ifdef(TEST).
 -compile(export_all).
@@ -11,60 +11,80 @@ to_roman(Number)->
 convert(0,Res)->
     Res;
 convert(Number, Res)->
-    case Number of
-	N  when N >= 1000  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 1000, Res, "M");
-	
-	N  when N >= 900  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 900, Res, "CM");
-	
-	N  when N >= 500  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 500, Res, "D");
-	
-	N  when N >= 400  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 400, Res, "CD");
-	
-	N  when N >= 100  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 100, Res, "C");
-	
-	N  when N >= 90  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 90, Res, "XC");
-	
-	N  when N >= 50  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 50, Res, "L");
-	
-	N  when N >= 40  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 40, Res, "XL");
-	
-	N  when N >= 10  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 10, Res, "X");
-	
-	N when N == 9  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 9, Res, "IX");
-	
-	N  when N >= 5  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 5, Res, "V");
-	
-	N when N == 4  ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 4, Res, "IV");
-	
-	N ->
-	    {New_N, New_Res} = subtract_number_and_add_roman_letter(N, 1, Res, "I")
-	end,
-    convert(New_N, New_Res).
+    U = get_largest_unit(Number),
+    Roman_number = get_roman_numeral(U),
+    convert(Number - U, Res ++ Roman_number).
 
-subtract_number_and_add_roman_letter(Indian_num, Substract, Roman_num, Add) ->
-    Num = Indian_num - Substract,
-    List = Roman_num ++ Add,
-    {Num, List}.
+get_largest_unit(Number) ->
+    case Number of
+	N when N >= 1000 ->
+	    1000;
+	N when N >= 900  ->
+	    900;
+	N when N >= 500 ->
+	    500;
+	N when N >= 400  ->
+	    400;
+	N when N >= 100 ->
+	    100;
+	N when N >= 90  ->
+	    90;
+	N when N >= 50 ->
+	    50;
+	N when N >= 40  ->
+	    40;
+	N when N >= 10 ->
+	    10;
+	N when N >= 9  ->
+	    9;
+	N when N >= 5 ->
+	    5;
+	N when N >= 4  ->
+	    4;
+	_ ->
+	    1
+	end.
+
+get_roman_numeral(Number) ->
+    case Number of
+	 1000 ->
+	    "M";
+	900  ->
+	    "CM";
+	500 ->
+	    "D";
+	400  ->
+	    "CD";
+	100 ->
+	    "C";
+	90  ->
+	    "XC";
+	50 ->
+	    "L";
+	40  ->
+	    "XL";
+	10 ->
+	    "X";
+	9  ->
+	    "IX";
+	5 ->
+	    "V";
+	4  ->
+	    "IV";
+	_ ->
+	    "I"
+	end.
+    
 
 to_indian(Roman_number)->
     to_indian(Roman_number,0).
 
 to_indian([],Result) ->
     Result;
+
 to_indian([H],Result) ->
     to_indian([], Result + get_value(H));
+
 to_indian([H1,H2|T],Result) ->
     First_Val = get_value(H1),
     Second_Val = get_value(H2),
