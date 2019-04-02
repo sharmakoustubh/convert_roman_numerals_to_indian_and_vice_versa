@@ -1,11 +1,10 @@
 roman
 =====
 
-An OTP application
+An OTP application to convert Roman numerals to Indian/Arabic numerals and the other way. 
 
 Build
 -----
 
     $ rebar3 compile
-# roman_to_indian_And_indian_to_roman
-# roman_to_indian_And_indian_to_roman
+
